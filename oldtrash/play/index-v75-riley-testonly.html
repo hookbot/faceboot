@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset=UTF-8>
+<meta content="IE=edge" http-equiv=X-UA-Compatible>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<meta content="CPPS.me's playpage, home of endless fun - lean back and enjoy the game!" name=description>
+<meta content="play cpps.me cpps club penguin private server endless fun free flash penguin media worlds largest card jitsu" name=keywords>
+<title>Play - English</title>
+<link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css rel=stylesheet crossorigin=anonymous
+      integrity=sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7>
+<link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css rel=stylesheet
+      crossorigin=anonymous integrity=sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css rel=stylesheet>
+<style>.panel-actions {
+    margin-top: -20px;
+    margin-bottom: 0;
+    text-align: right;
+}
+.panel-actions a {
+    color:#333;
+}
+.panel-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+}body{padding-top:70px}.bigdrop.select2-container .select2-results{max-height:300px}.bigdrop .select2-results{max-height:300px}@media screen and (max-width: 767px){.select2{width:100%!important}}.badge-purple{background-color:#9585bf!important}.navbar-default{background-image:url(http://www.cpps.me/images/slide2.png);background-color:#fff}.navbar-default .navbar-brand,.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:hover{color:#fff}.navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > .active > a:focus,.navbar-default .navbar-nav > .active > a:hover{color:#fff;background:rgba(0,0,0,.2) none}.navbar-default .navbar-nav > .active{background-color:transparent}.navbar-default .navbar-nav > .open > a,.navbar-default .navbar-nav > .open > a:focus,.navbar-default .navbar-nav > .open > a:hover{color:#fff;background:rgba(0,0,0,.2) none}.dropdown-menu > li > a:focus,.dropdown-menu > li > a:hover{color:#555;text-decoration:none}.navbar-default .navbar-nav > li > a,.navbar-default .navbar-nav > li > a:focus,.navbar-default .navbar-nav > li > a:hover{color:#fff;background-image:none}</style>
+<script src=https://code.jquery.com/jquery-2.2.4.min.js crossorigin=anonymous></script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.min.js"></script>
+<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js crossorigin=anonymous
+        integrity=sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js></script>
+<script>!function (e, t, a, n, c, o, s) {
+    e.GoogleAnalyticsObject = c, e[c] = e[c] || function () {
+                (e[c].q = e[c].q || []).push(arguments)
+            }, e[c].l = 1 * new Date, o = t.createElement(a), s = t.getElementsByTagName(a)[0], o.async = 1, o.src = n, s.parentNode.insertBefore(o, s)
+}(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-81385509-1", "auto"), ga("send", "pageview")</script>
+<script>!function (e, n, t) {
+    var o, c = e.getElementsByTagName(n)[0];
+    e.getElementById(t) || (o = e.createElement(n), o.id = t, o.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5", c.parentNode.insertBefore(o, c))
+}(document, "script", "facebook-jssdk")</script>
+<script>
+jQuery.extend({
+    getQueryParameters : function(str) {
+        return (str || document.location.search).replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this}.bind({}))[0];
+    }
+});
+
+function updateOnline() {
+    $.getJSON("https://crossorigin.me/http://stats.cpps.me/users.json", function(e) {
+        $("#online_badge").text(e.online)
+    })
+}
+
+$(document).ready(function () {
+
+    var lang = $.getQueryParameters()["lang"];
+    if (!lang) {
+        var q = $.getQueryParameters();
+        q["lang"] = window.navigator.language.substr(0,2);
+        location.search = $.param(q);
+        return;
+    }
+    changeLanguage(lang);
+    $(".item-search").select2({
+        placeholder: "Search items",
+        allowClear: true,
+        width: '300px',
+        dropdownCssClass: "bigdrop",
+        templateResult: formatItems,
+        delay: 250,
+        crossDomain: true,
+        minimumInputLength: 1,
+        escapeMarkup: function (m) {
+            return m;
+        },
+        ajax: {
+            url: "https://rile5.com/items.php",
+            cache: true,
+            async: true,
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: params.term,
+                    page: params.page || 1
+                };
+            },
+            results: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.name,
+                            id: item.id
+                        }
+                    })
+                };
+            }
+        }
+    });
+
+    $(function () {
+        $(".language-selector > li").click(function () {
+            var q = $.getQueryParameters();
+            q["lang"] = $(this).data("lang");
+            location.search = $.param(q);
+        });
+    });
+    updateOnline();
+    setTimeout(updateOnline, 360000);
+});
+
+function changeLanguage(code) {
+    var t = ["en", "pt", "fr", "de", "es"];
+    if (t.indexOf(code) == -1) return;
+    $(".language-selector > li").each(function () {
+        if ($(this).data("lang") == code) {
+            $(this).addClass("active");
+            document.title = "Play - " + $(this).text();
+            $('#language-text').html($(this).text() + ' <span class="caret"></span>');
+        } else {
+            $(this).removeClass("active");
+        }
+    });
+}
+
+function formatItems(e) {
+    return "" != e.id && void 0 != e.id ? '<div class="row"><div class="col-xs-6 col-md-4"><img src="http://media8.clubpenguin.com/game/items/images/paper/icon/60/' + e.id + '.png" onerror="this.src=\'https://placeholdit.imgix.net/~text?txtsize=30&txt=X&w=60&h=60&txttrack=0\'" class="img-circle"></div><div class="col-xs-12 col-sm-6 col-md-8"><p class="text-primary">' + e.text + '</p><p class="text-muted">Item ID: ' + e.id + "</p></div></div>" : void 0
+}
+
+$(document).ready(function() {
+    var param_vars = {
+        menu:false,
+        wmode:"gpu",
+        devicefont:true,
+        allowscriptaccess:"sameDomain",
+        base:"http://media.cpps.me/play/"
+    };
+    var attributes = {
+        class:"embed-responsive-item",
+        align:"top"
+    };
+    var callback = function (e){
+        if(e.success){
+           console.log("Loaded!");
+            console.log($.getQueryParameters());
+        }
+    };
+
+    swfobject.embedSWF('http://media.cpps.me/play/loader_r15_2016.swf',"gameEmbed","100%","100%","10","",$.getQueryParameters(),param_vars,attributes,callback);
+});
+$(document).ready(function () {
+    //Toggle fullscreen
+    $("#panel-fullscreen").click(function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        if ($this.children('i').hasClass('glyphicon-resize-full'))
+        {
+            $this.children('i').removeClass('glyphicon-resize-full');
+            $this.children('i').addClass('glyphicon-resize-small');
+        }
+        else if ($this.children('i').hasClass('glyphicon-resize-small'))
+        {
+            $this.children('i').removeClass('glyphicon-resize-small');
+            $this.children('i').addClass('glyphicon-resize-full');
+        }
+        $(this).closest('.panel').toggleClass('panel-fullscreen');
+    });
+});
+</script>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class=container-fluid>
+        <div class=navbar-header>
+            <button aria-expanded=false class="collapsed navbar-toggle" data-target=#cpps-navbar data-toggle=collapse
+                    type=button><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span
+                    class=icon-bar></span> <span class=icon-bar></span></button>
+            <a href=//www.cpps.me/ class=navbar-brand>CPPS.me</a></div>
+        <li class="collapse navbar-collapse" id=cpps-navbar>
+            <ul class="nav navbar-nav">
+                <li class=active><a href=//chat.cpps.me/ >Play</a>
+                <li><a href="//secure.cpps.me/?page=reg">Register</a>
+                <li><a href="//manager.cpps.me/index.php?area=nameedit">Manager</a>
+                <li><a href=//support.cpps.me/ >Support</a>
+            </ul>
+            <form class="navbar-form navbar-left" role=search>
+                <div class=form-group><select class="form-control item-search" style=width:100%></select></div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=//www.cpps.me/stats.html class=dropdown-toggle>Online Users <span class="badge badge-purple"
+                                                                                              id=online_badge></span></a>
+                <li class=dropdown><a href=# class=dropdown-toggle aria-expanded=false aria-haspopup=true
+                                      data-toggle=dropdown id=language-text role=button>Language <span
+                        class=caret></span></a>
+                    <ul class="dropdown-menu language-selector">
+                        <li data-lang=en class=active><a href=#>English</a>
+                        <li data-lang=pt><a href=#>Português</a>
+                        <li data-lang=fr><a href=#>Français</a>
+                        <li data-lang=es><a href=#>Español</a>
+                        <li data-lang=de><a href=#>Deutsch</a>
+                    </ul>
+            </ul>
+    </div>
+</nav>
+<div class=container-fluid>
+    <div class=row>
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Play</h3>
+                    <ul class="list-inline panel-actions">
+                        <li><a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen"><i class="glyphicon glyphicon-resize-full"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div id="gameEmbed"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=container-fluid>
+    <hr>
+    <div class="center-block text-center"><p class=txt-railway>2016 CPPS.me
+        <div class=fb-like data-action=like
+             data-href=https://www.facebook.com/CPPSme-284047591632915/ data-layout=button_count data-share=false
+             data-show-faces=false></div>
+        <p><a href=//media.cpps.me/play/ >Play</a> | <a href=//www.cpps.me/rules.html>Rules</a> | <a
+                href=//www.cpps.me/commands.html>Commands</a> | <a href=//www.cpps.me/staff.html>Staff</a> | <a
+                href=//www.cpps.me/stats.html>Stats</a> | <a href=//support.cpps.me>Support</a></div>
+    <hr>
+</div>

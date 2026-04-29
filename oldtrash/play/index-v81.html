@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <meta content="IE=edge" http-equiv=X-UA-Compatible>
+    <meta content="width=device-width,initial-scale=1" name=viewport>
+    <meta content="CPPS.me's playpage, home of endless fun - lean back and enjoy the game!" name=description>
+    <meta content="play cpps.me cpps club penguin private server endless fun free flash penguin" name=keywords>
+    <title>Play - English</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.2/css/bootstrap-dialog.min.css"
+          rel="stylesheet">
+    <style>.panel-actions {
+        margin-top: -20px;
+        margin-bottom: 0;
+        text-align: right
+    }
+
+    .panel-actions a {
+        color: #333
+    }
+
+    .panel-fullscreen {
+        display: block;
+        z-index: 9999;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: auto
+    }
+
+    body {
+        padding-top: 70px;
+    }
+
+    .bigdrop.select2-container .select2-results {
+        max-height: 300px
+    }
+
+    .bigdrop .select2-results {
+        max-height: 300px
+    }
+
+    @media screen and (max-width: 767px) {
+        .select2 {
+            width: 100% !important
+        }
+    }
+
+    .badge-purple {
+        background-color: #9585bf !important
+    }
+
+    .navbar-default {
+        background: #fff url(http://media.cpps.me/images/min-min.png);
+    }
+
+    .navbar-default .navbar-brand, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+        color: #fff
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, .2) none
+    }
+
+    .navbar-default .navbar-nav > .active {
+        background-color: transparent
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, .2) none
+    }
+
+    .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+        color: #555;
+        text-decoration: none
+    }
+
+    .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        color: #fff;
+        background-image: none
+    }</style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.2/js/bootstrap-dialog.min.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-81385509-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        !function (e, n, t) {
+            var o, c = e.getElementsByTagName(n)[0];
+            e.getElementById(t) || (o = e.createElement(n), o.id = t, o.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5", c.parentNode.insertBefore(o, c))
+        }(document, "script", "facebook-jssdk")</script>
+    <script>
+        jQuery.extend({
+            getQueryParameters: function (str) {
+                return JSON.parse(JSON.stringify((str || document.location.search).replace(/(^\?)/, '').split("&").map(function (n) {
+                    return n = n.split("="), this[n[0]] = n[1], this
+                }.bind({}))[0]));
+            }
+        });
+        function updateOnline() {
+            $.getJSON("https://crossorigin.me/http://stats.cpps.me/users.json", function (e) {
+                $("#online_badge").text(e.online)
+            })
+        }
+
+        function displayMessage(title, message) {
+            BootstrapDialog.show({
+                title: title,
+                message: message
+            });
+        }
+        $(document).ready(function () {
+            var lang = $.getQueryParameters()["lang"];
+            if (!lang) {
+                var q = $.getQueryParameters();
+                q["lang"] = window.navigator.language.substr(0, 2);
+                location.search = $.param(q);
+                return;
+            }
+            changeLanguage(lang);
+            $(".item-search").select2({
+                placeholder: "Search items",
+                allowClear: true,
+                width: '300px',
+                dropdownCssClass: "bigdrop",
+                templateResult: formatItems,
+                crossDomain: true,
+                minimumInputLength: 1,
+                escapeMarkup: function (m) {
+                    return m;
+                },
+                ajax: {
+                    url: "https://rile5.com/items.php",
+                    cache: true,
+                    async: true,
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1
+                        };
+                    },
+                    results: function (data) {
+                        return {
+                            results: $.map(data, function (item) {
+                                return {
+                                    text: item.name,
+                                    id: item.id,
+                                    disabled: true
+                                }
+                            })
+                        };
+                    }
+                }
+            });
+            $(function () {
+                $(".language-selector > li").click(function () {
+                    var q = $.getQueryParameters();
+                    q["lang"] = $(this).data("lang");
+                    location.search = $.param(q);
+                });
+            });
+            updateOnline();
+            setTimeout(updateOnline, 360000);
+        });
+
+        function changeLanguage(code) {
+            var t = ["en", "pt", "fr", "de", "es"];
+            if (t.indexOf(code) == -1) return;
+            $(".language-selector > li").each(function () {
+                if ($(this).data("lang") == code) {
+                    $(this).addClass("active");
+                    document.title = "Play - " + $(this).text();
+                    $('#language-text').html($(this).text() + ' <span class="caret"></span>');
+                } else {
+                    $(this).removeClass("active");
+                }
+            });
+        }
+
+        function getFlashMovieObject() {
+            if (window.document["gameEmbed"]) {
+                return window.document["gameEmbed"];
+            }
+            if (navigator.appName.indexOf("Microsoft Internet") == -1) {
+                if (document.embeds && document.embeds["gameEmbed"])
+                    return document.embeds["gameEmbed"];
+            }
+            else {
+                return document.getElementById("gameEmbed");
+            }
+        }
+
+        function sendMessage(msg) {
+            getFlashMovieObject().wmessage(msg);
+        }
+
+        function ignKey() {
+            return "okay";
+        }
+
+        function formatItems(item) {
+            if (item.id == '' || item.id == undefined) return;
+            return '<div class="row">' +
+                    '<div class="col-xs-6 col-md-4"><img src="http://cdn.clubpenguin.com/game/items/images/paper/icon/60/' + item.id + '.png" onerror="this.src=\'https://placeholdit.imgix.net/~text?txtsize=30&txt=X&w=60&h=60&txttrack=0\'" class="img-circle"></div>' +
+                    '<div class="col-xs-12 col-sm-6 col-md-8"><p class="text-primary">' + item.text + '</p><p class="text-muted">Item ID: ' + item.id + '</p></div>' +
+                    '</div>';
+        }
+
+        $(document).ready(function () {
+            var param_vars = {
+                wmode: "direct",
+                allowScriptAccess: "always",
+                base: "http://media.cpps.me/play/"
+            };
+            var attributes = {
+                align: "top",
+                id: "gameEmbed",
+                name: "gameEmbed"
+            };
+            var callback = function (e) {
+                if (e.success) {
+
+                }
+            };
+            swfobject.embedSWF('http://media.cpps.me/play/loader_r17_2016.swf', "gameEmbed", "100%", "100%", "10", false, $.getQueryParameters(), param_vars, attributes, callback);
+            $("#panel-fullscreen").click(function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                if ($this.children('i').hasClass('glyphicon-resize-full')) {
+                    $this.children('i').removeClass('glyphicon-resize-full');
+                    $this.children('i').addClass('glyphicon-resize-small');
+                } else if ($this.children('i').hasClass('glyphicon-resize-small')) {
+                    $this.children('i').removeClass('glyphicon-resize-small');
+                    $this.children('i').addClass('glyphicon-resize-full');
+                }
+                $(this).closest('.panel').toggleClass('panel-fullscreen');
+            });
+        });
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class=container-fluid>
+        <div class=navbar-header>
+            <button aria-expanded=false class="collapsed navbar-toggle" data-target=#cpps-navbar data-toggle=collapse
+                    type=button><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span
+                    class=icon-bar></span> <span class=icon-bar></span></button>
+            <a href=//www.cpps.me/ class=navbar-brand>CPPS.me</a></div>
+        <li class="collapse navbar-collapse" id=cpps-navbar>
+            <ul class="nav navbar-nav">
+                <li class=active><a href="http://chat.cpps.me/">Play</a>
+                <li><a href="https://secure.cpps.me/?page=reg">Register</a>
+                <li><a href="http://manager.cpps.me/index.php?area=nameedit">Manager</a>
+                <li><a href="http://support.cpps.me/">Support</a>
+            </ul>
+            <form class="navbar-form navbar-left" role=search>
+                <div class=form-group><select class="form-control item-search" style=width:100%></select></div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.cpps.me/stats.html" class=dropdown-toggle>Online Users <span class="badge badge-purple"
+                                                                                              id=online_badge></span></a>
+                <li class=dropdown><a href=# class=dropdown-toggle aria-expanded=false aria-haspopup=true
+                                      data-toggle=dropdown id=language-text role=button>Language <span
+                        class=caret></span></a>
+                    <ul class="dropdown-menu language-selector">
+                        <li data-lang=en class=active><a href=#>English</a>
+                        <li data-lang=pt><a href=#>Português</a>
+                        <li data-lang=fr><a href=#>Français</a>
+                        <li data-lang=es><a href=#>Español</a>
+                        <li data-lang=de><a href=#>Deutsch</a>
+                    </ul>
+            </ul>
+    </div>
+</nav>
+
+<div class=container-fluid>
+    <div class="row">
+        <div class="col-sm-offset-1">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-8045236244006514"
+                 data-ad-slot="1365397650"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    <div class=row>
+        <div class="col-md-2 col-sm-1">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- CPPS.me - Left Side -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:160px;height:600px"
+                 data-ad-client="ca-pub-8045236244006514"
+                 data-ad-slot="3671232456"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="col-md-10 col-sm-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Play</h3>
+                    <ul class="list-inline panel-actions">
+                        <li><a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen"><i
+                                class="glyphicon glyphicon-resize-full"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div class="embed-responsive-item">
+                            <div id="gameEmbed"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Leaderboardcppsme -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-8045236244006514"
+                 data-ad-slot="8189477253"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+</div>
+<div class=container-fluid>
+    <hr>
+    <div class="center-block text-center"><p class=txt-railway>2016 CPPS.me
+        <div class=fb-like data-action=like data-href="https://www.facebook.com/CPPSme-284047591632915/"
+             data-layout=button_count data-share=false data-show-faces=false></div>
+        <p><a href="//media.cpps.me/play/">Play</a> | <a href="//www.cpps.me/rules.html">Rules</a> | <a
+                href=//www.cpps.me/commands.html>Commands</a> | <a href=//www.cpps.me/staff.html>Staff</a> | <a
+                href=//www.cpps.me/stats.html>Stats</a> | <a href=//support.cpps.me>Support</a></div>
+    <hr>
+</div>
+</body>
+</html>

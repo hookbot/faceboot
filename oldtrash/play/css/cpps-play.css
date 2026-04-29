@@ -1,0 +1,17 @@
+.cppsme-navbar {
+    background: url("../images/navbar-min.png") bottom;
+    background-size: cover;
+    border-top-style: solid;
+}
+
+.noshow {
+    display: none;
+}
+
+.game-column {
+    padding: 5% 0 0;
+}
+
+html, body {
+    height: 100%;
+}

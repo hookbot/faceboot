@@ -1,0 +1,154 @@
+{
+  "paper_crumbs": {
+    "90000": {
+      "type": 1,
+      "cost": 0,
+      "is_member": true
+    },
+    "90003": {
+      "type": 4,
+      "cost": 0,
+      "is_member": false
+    },
+    "90102": {
+      "type": 4,
+      "cost": 0,
+      "is_member": false
+    },
+    "90059": {
+      "type": 4,
+      "cost": 0,
+      "is_member": false
+    },
+    "90066": {
+      "type": 4,
+      "cost": 0,
+      "is_member": false
+    },
+    "90084": {
+      "type": 4,
+      "cost": 0,
+      "is_member": false
+    },
+    "90077": {
+      "type": 4,
+      "cost": 0,
+      "is_member": false
+    },
+    "90101": {
+      "type": 1,
+      "cost": 0,
+      "is_member": false
+    },
+    "90103": {
+      "type": 1,
+      "cost": 0,
+      "is_member": false
+    },
+    "90087": {
+      "type": 1,
+      "cost": 0,
+      "is_member": false
+    },
+    "90016": {
+      "type": 3,
+      "cost": 0,
+      "is_member": false
+    },
+    "90076": {
+      "type": 2,
+      "cost": 0,
+      "is_member": false
+    },
+    "90100": {
+      "type": 2,
+      "cost": 0,
+      "is_member": false
+    },
+    "90055": {
+      "type": 5,
+      "cost": 0,
+      "is_member": false
+    },
+    "90050": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90062": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90063": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90017": {
+      "type": 3,
+      "cost": 0,
+      "is_member": false
+    },
+    "90018": {
+      "type": 2,
+      "cost": 0,
+      "is_member": false
+    },
+    "90104": {
+      "type": 1,
+      "cost": 0,
+      "is_member": false
+    },
+    "90020": {
+      "type": 2,
+      "cost": 0,
+      "is_member": false
+    },
+    "90021": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90022": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90023": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90024": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90025": {
+      "type": 8,
+      "cost": 0,
+      "is_member": false
+    },
+    "90303": {
+      "type": 5,
+      "cost": 0,
+      "is_member": false
+    },
+    "90304": {
+      "type": 2,
+      "cost": 0,
+      "is_member": false
+    },
+    "90305": {
+      "type": 3,
+      "cost": 0,
+      "is_member": false
+    },
+    "90306": {
+      "type": 3,
+      "cost": 0,
+      "is_member": false
+    }
+  }
+}

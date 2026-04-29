@@ -1,0 +1,80 @@
+.row {
+    margin-bottom: 5px;
+    margin-top: 0
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+.social .fa-twitter:hover {
+    color: #00ABE3
+}
+
+.social .fa-twitch:hover {
+    color: #6441A5
+}
+
+.badge-purple {
+    background-color: purple !important
+}
+
+.navbar-default {
+    background: url(/play/images/min-min.png) #fff;
+    height: 28px
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 58%;
+    padding-top: 0;
+    height: 0
+}
+
+.videoWrapper embed, .videoWrapper object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, .3)
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, .3)
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    color: #555;
+    text-decoration: none
+}
+
+.navbar-default .navbar-brand {
+    color: #fff
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #5E5E5E
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+    background-image: none
+}
+
+.sidebar-right {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#online, .sidebar-left {
+    text-shadow: 0 1px 0 #000, 0 1px 0 #000, 0 1px 0 #000;
+}

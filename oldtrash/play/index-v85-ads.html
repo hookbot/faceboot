@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <meta content="IE=edge" http-equiv=X-UA-Compatible>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="CPPS.me's playpage, home of endless fun - lean back and enjoy the game!" name=description>
+    <meta content="play cpps.me cpps club penguin private server endless fun free flash penguin" name=keywords>
+    <title>Play - English</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.2/css/bootstrap-dialog.min.css"
+          rel="stylesheet">
+    <style>
+    body {
+        padding-top: 70px;
+        background: url("//i.imgur.com/hR3pqrP.jpg") bottom center repeat-x #a4d8ff;
+    }
+
+    .bigdrop .select2-results, .bigdrop.select2-container .select2-results {
+        max-height: 300px
+    }
+
+    @media screen and (max-width: 767px) {
+        .select2 {
+            width: 100% !important
+        }
+    }
+
+    .badge-purple {
+        background-color: #9585bf !important
+    }
+
+    .navbar-default {
+        background: url("//media.cpps.me/play/images/min-min.png") #fff
+    }
+    .navbar-default .navbar-brand, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+        color: #fff
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, .2)
+    }
+
+    .navbar-default .navbar-nav > .active {
+        background-color: transparent
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, .2)
+    }
+
+    .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+        color: #555;
+        text-decoration: none
+    }
+
+    .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        color: #fff;
+        background-image: none
+    }
+    #bannerdiv {
+        float: left;
+        width: 160px;
+        padding: 10% 5px 3px 10px;
+    }
+    #game {
+        height: 100%;
+        height: -moz-calc(100vh - 125px);
+        height: calc(100vh - 125px);
+        min-height: 460px;
+        width: 1000px;
+        min-width: 717px;
+        left: -50px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 5px;
+        position: relative;
+    }
+    #gameEmbed {
+        height: 102.1%;
+        width: 101.2%;
+        position: absolute;
+        top: -1%;
+        bottom: -1%;
+        left: -0.5%;
+        right: -0.5%;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.2/js/bootstrap-dialog.min.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-81385509-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        !function (e, n, t) {
+            var o, c = e.getElementsByTagName(n)[0];
+            e.getElementById(t) || (o = e.createElement(n), o.id = t, o.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5", c.parentNode.insertBefore(o, c))
+        }(document, "script", "facebook-jssdk")</script>
+    <script>
+        function updateOnline() {
+            $.getJSON("https://crossorigin.me/http://stats.cpps.me/users.json", function (a) {
+                $("#online_badge").text(a.online)
+            })
+        }
+        function displayMessage(a, b) {
+            BootstrapDialog.show({title: a, message: b})
+        }
+        function changeLanguage(a) {
+            var b = ["en", "pt", "fr", "de", "es"];
+            b.indexOf(a) != -1 && $(".language-selector > li").each(function () {
+                $(this).data("lang") == a ? ($(this).addClass("active"), document.title = "Play - " + $(this).text(), $("#language-text").html($(this).text() + ' <span class="caret"></span>')) : $(this).removeClass("active")
+            })
+        }
+        function getFlashMovieObject() {
+            return window.document.gameEmbed ? window.document.gameEmbed : navigator.appName.indexOf("Microsoft Internet") != -1 ? document.getElementById("gameEmbed") : document.embeds && document.embeds.gameEmbed ? document.embeds.gameEmbed : void 0
+        }
+        function sendMessage(a) {
+            getFlashMovieObject().wmessage(a)
+        }
+        function ignKey() {
+            return "okay"
+        }
+        function formatItems(a) {
+            if ("" != a.id && void 0 != a.id)return '<div class="row"><div class="col-xs-6 col-md-4"><img src="http://cdn.clubpenguin.com/game/items/images/paper/icon/60/' + a.id + '.png" onerror="this.src=\'https://placeholdit.imgix.net/~text?txtsize=30&txt=X&w=60&h=60&txttrack=0\'" class="img-circle"></div><div class="col-xs-12 col-sm-6 col-md-8"><p class="text-primary">' + a.text + '</p><p class="text-muted">Item ID: ' + a.id + "</p></div></div>"
+        }
+        jQuery.extend({
+            getQueryParameters: function (a) {
+                return JSON.parse(JSON.stringify((a || document.location.search).replace(/(^\?)/, "").split("&").map(function (a) {
+                    return a = a.split("="), this[a[0]] = a[1], this
+                }.bind({}))[0]))
+            }
+        }),
+
+                $(window).resize(function(){
+                    if('webkitRequestAnimationFrame' in window){
+                        var height = document.documentElement.clientHeight;
+                        if(height == window.oldH) return;
+                        else window.oldH = height;
+                        document.getElementById("game").style.height = height - 125 + "px";
+                    }
+                    var width = document.getElementById("game").clientHeight * (935 / 590);
+                    if(width == window.oldW) return;
+                    else window.oldW = width;
+                    if(width > document.documentElement.clientWidth) width = 1000;
+                    document.getElementById("game").style.width = width + "px";
+                }),
+                $(document).ready(function () {
+
+                    var a = $.getQueryParameters().lang;
+                    if (!a) {
+                        var b = $.getQueryParameters();
+                        return b.lang = window.navigator.language.substr(0, 2), void(location.search = $.param(b))
+                    }
+                    changeLanguage(a), $(".item-search").select2({
+                        placeholder: "Search items",
+                        allowClear: !0,
+                        width: "300px",
+                        dropdownCssClass: "bigdrop",
+                        templateResult: formatItems,
+                        crossDomain: !0,
+                        minimumInputLength: 1,
+                        escapeMarkup: function (a) {
+                            return a
+                        },
+                        ajax: {
+                            url: "https://rile5.com/items.php", cache: !0, async: !0, dataType: "json", data: function (a) {
+                                return {q: a.term, page: a.page || 1}
+                            }, results: function (a) {
+                                return {
+                                    results: $.map(a, function (a) {
+                                        return {text: a.name, id: a.id, disabled: !0}
+                                    })
+                                }
+                            }
+                        }
+                    }), $(function () {
+                        $(".language-selector > li").click(function () {
+                            var a = $.getQueryParameters();
+                            a.lang = $(this).data("lang"), location.search = $.param(a)
+                        })
+                    }), updateOnline(), setTimeout(updateOnline, 36e4)
+                }), $(document).ready(function () {
+            var a = {
+                wmode: "direct",
+                allowScriptAccess: "always",
+                base: ('https:' == document.location.protocol ? 'https' : 'http') + "://media.cpps.me/play/"
+            }, b = {align: "top", id: "gameEmbed", name: "gameEmbed"}, c = function (a) {
+            };
+            swfobject.embedSWF(('https:' == document.location.protocol ? 'https' : 'http') + "://media.cpps.me/play/loader_r17_2016.swf", "gameEmbed", "100%", "100%", "10", !1, $.getQueryParameters(), a, b, c), $("#panel-fullscreen").click(function (a) {
+                a.preventDefault();
+                var b = $(this);
+                b.children("i").hasClass("glyphicon-resize-full") ? (b.children("i").removeClass("glyphicon-resize-full"), b.children("i").addClass("glyphicon-resize-small")) : b.children("i").hasClass("glyphicon-resize-small") && (b.children("i").removeClass("glyphicon-resize-small"), b.children("i").addClass("glyphicon-resize-full")), $(this).closest(".panel").toggleClass("panel-fullscreen")
+            })
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class=container-fluid>
+        <div class=navbar-header>
+            <button aria-expanded=false class="collapsed navbar-toggle" data-target=#cpps-navbar data-toggle=collapse
+                    type=button><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span
+                    class=icon-bar></span> <span class=icon-bar></span></button>
+            <a href=//www.cpps.me/ class=navbar-brand>CPPS.me</a></div>
+        <li class="collapse navbar-collapse" id=cpps-navbar>
+            <ul class="nav navbar-nav">
+                <li class=active><a href="http://chat.cpps.me/">Play</a>
+                <li><a href="https://secure.cpps.me/?page=reg">Register</a>
+                <li><a href="http://manager.cpps.me/index.php?area=nameedit">Manager</a>
+                <li><a href="http://support.cpps.me/">Support</a>
+            </ul>
+            <form class="navbar-form navbar-left" role=search>
+                <div class=form-group><select class="form-control item-search" style=width:100%></select></div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.cpps.me/stats.html" class=dropdown-toggle>Online Users <span
+                        class="badge badge-purple"
+                        id=online_badge></span></a>
+                <li class=dropdown><a href=# class=dropdown-toggle aria-expanded=false aria-haspopup=true
+                                      data-toggle=dropdown id=language-text role=button>Language <span
+                        class=caret></span></a>
+                    <ul class="dropdown-menu language-selector">
+                        <li data-lang=en class=active><a href=#>English</a>
+                        <li data-lang=pt><a href=#>Português</a>
+                        <li data-lang=fr><a href=#>Français</a>
+                        <li data-lang=es><a href=#>Español</a>
+                        <li data-lang=de><a href=#>Deutsch</a>
+                    </ul>
+            </ul>
+    </div>
+</nav>
+
+<div class="container-fluid background">
+
+    <div id="bannerdiv" style="background: url(//i.imgur.com/6CLli9i.png) no-repeat; ">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- left -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:160px;height:600px"
+             data-ad-client="ca-pub-4983122962279607"
+             data-ad-slot="7692718358"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div style="margin: 35px auto 0; margin-bottom: 80px; margin-top: 0px; height: 90px; width: 728px; background: url(//i.imgur.com/uCOkoNO.png); ">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- above -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-4983122962279607"
+             data-ad-slot="7478616191"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <div id="game">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <div class="embed-responsive-item">
+                        <div id="gameEmbed"></div>
+                    </div>
+                    </div>
+    </div>
+<div style="margin: 50px auto 0; height: 90px; width: 728px; background: URL(http://i.imgur.com/uCOkoNO.png); ">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- below -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:728px;height:90px"
+         data-ad-client="ca-pub-4983122962279607"
+         data-ad-slot="9753850357"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+    </div>
+<div class=container-fluid>
+    <hr>
+    <div class="center-block text-center"><p class=txt-railway>2016 CPPS.me
+        <div class=fb-like data-action=like data-href="https://www.facebook.com/CPPSme-284047591632915/"
+             data-layout=button_count data-share=false data-show-faces=false></div>
+        <p><a href="//media.cpps.me/play/">Play</a> | <a href="//www.cpps.me/rules.html">Rules</a> | <a
+                href=//www.cpps.me/commands.html>Commands</a> | <a href=//www.cpps.me/staff.html>Staff</a> | <a
+                href=//www.cpps.me/stats.html>Stats</a> | <a href=//support.cpps.me>Support</a></div>
+    <hr>
+</div>
+</body>
+</html>

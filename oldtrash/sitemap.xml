@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://www.cpps.me/</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+<url>
+  <loc>https://media.cpps.me/play/index.html</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+<url>
+   <loc>https://secure.cpps.me/?page=reg</loc>
+</url>
+<url>
+  <loc>https://www.cpps.me/</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.cpps.me/rules.html</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.cpps.me/commands.html</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.cpps.me/staff.html</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.cpps.me/stats.html</loc>
+  <lastmod>2017-07-03T05:06:12+00:00</lastmod>
+</url>
+</urlset>
