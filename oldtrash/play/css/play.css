@@ -32,7 +32,11 @@
     height: 0
 }
 
-.videoWrapper embed, .videoWrapper object {
+.videoWrapper embed,
+.videoWrapper object,
+.videoWrapper ruffle-object,
+.videoWrapper ruffle-embed,
+.videoWrapper #gameEmbed {
     position: absolute;
     top: 0;
     left: 0;
